@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Soumalya's Portfolio</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,600&family=Ysabeau+Infant:wght@300&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/7eae36937d.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
+
+    <!-- linking css file -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+.loading-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff; /* Set the background color as per your preference */
+      z-index: 9999; /* Set a high z-index to ensure it appears above other content */
+    }
+
+    .lds-ripple {
+      display: inline-block;
+      position: relative;
+      width: 80px;
+      height: 80px;
+    }
+
+    .lds-ripple div {
+      position: absolute;
+      border: 4px solid rgb(188, 13, 13);
+      opacity: 1;
+      border-radius: 50%;
+      animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    }
+
+    .lds-ripple div:nth-child(2) {
+      animation-delay: -0.5s;
+    }
+
+    @keyframes lds-ripple {
+      0% {
+        top: 36px;
+        left: 36px;
+        width: 0;
+        height: 0;
+        opacity: 0;
+      }
+      4.9% {
+        top: 36px;
+        left: 36px;
+        width: 0;
+        height: 0;
+        opacity: 0;
+      }
+      5% {
+        top: 36px;
+        left: 36px;
+        width: 0;
+        height: 0;
+        opacity: 1;
+      }
+      100% {
+        top: 0px;
+        left: 0px;
+        width: 72px;
+        height: 72px;
+        opacity: 0;
+      }
+    }
+
+        /* spacing on all sections */
+
+
+        .section {
+            margin-top: 4rem;
+            padding-top: 4rem;
+        }
+
+        body {
+            font-family: 'poppins', sans-serif;
+        }
+
+        .section:last-of-type {
+            padding-bottom: 4rem;
+        }
+
+        /* hero background image */
+        .bgimage {
+            height: 100vh;
+            background: url('images/p111.jpg');
+            background-size: cover;
+            position: relative;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* text css above hero image*/
+        .hero_title {
+            padding-top: 10rem;
+            font-size: 4.5rem;
+        }
+
+        .hero_desc {
+            font-size: 2rem;
+        }
+
+
+        .hero_title_line{
+            color: rgb(255, 254, 254);
+        }
+        .hero_text {
+            font-size: 1.3rem;
+
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(249, 244, 244);
+        }
+
+        .image_photo2 {
+            width: 100%;
+        }
+
+
+        .purple {
+            colour: rgb(173, 216, 230);
+
+        }
+
+        #element {
+            font-size: 1.3rem;
+            colour: rgb(173, 216, 230);
+        }
+
+
+
+        @media screen and (max-width: 768px) {
+    .education {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .education .left_box,
+    .education .right_box {
+        width: 80%;
+    }
+
+    .education .left_box {
+        padding: 2em;
+    }
+
+    .education .right_box {
+        margin-top: 2em;
+    }
+
+    .education .image-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+
+        //skills  
+        .skill-box:hover p {
+            color: black;
+        }
+
+
+        .skill-box:hover p {
+            /*background-color: black;*/
+            color: rgb(8, 0, 0);
+        }
+
+        .skills-container {
+            background-color: #E8F5E9;
+        }
+
+        .header:hover h1 {
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="loading-container">
+        <div class="lds-ripple">
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+
+    <!-- navbar -->
+    <!-- https://getbootstrap.com/docs/5.2/components/navbar/ -->
+    <!-- Add class of bg-light to nav element -->
+    <nav class="navbar navbar-expand-lg fixed-top navbarScroll navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Soumalya Bhattacharyya</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- main banner -->
+    <!-- https://getbootstrap.com/docs/5.2/layout/containers/ -->
+    <!-- https://getbootstrap.com/docs/5.2/layout/grid/ -->
+    <!-- main banner -->
+    <section class="container-fluid section bgimage" id="home">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero_text">
+                <div class="hero_title">
+                    <span class="hero_title_line">Hello, It's me <span class="purple">Soumalya</span>
+
+                </div>
+                <p class="hero_desc">Welcome to my Portfolio Website!
+                <div> I am passionate about leveraging technology to create innovative solutions.</div>
+                <div>Dive into my expertise and discover the possibilities.</div>
+                </p>
+                <span id="element"></span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- about section -->
+    <section class="container mt-4 pt-4 section" id="about">
+
+        <h1 class="text-center about_title">About Me</h1>
+
+        <div class="row mt-4">
+            <div class="col-lg-4">
+                <div class="image-container">
+                    <img src="images/photo2.jpg" class="image_photo2" alt="">
+                    <div class="overlay"></div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <p> I am Soumalya Bhattacharyya from Kolkata, West Bengal.My age is 21 years and currently, I am pursuing B. Tech
+                    in Electronics and Communication Engineering from Techno Main Saltlake. I find joy
+                    in engaging in diverse projects and exploring new ideas. Taking risks and overcoming challenges
+                    excite me. In my free time, I indulge in hobbies that fuel my curiosity and creativity.
+
+                </p>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <ul>
+                            <li>Skill Uplifting</li>
+                            <li>Learning Music and Instruments</li>
+                            <li>Playing Cricket</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul>
+                            <li>Content Writing</li>
+                            <li>Coding and Web Developing</li>
+                            <li>Making Electronic Models</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <p> I am an electronics engineer and a connoisseur of technology. With a fervent passion for core
+                        electronics, machine learning, Internet of Things, web development, and the intricacies of data
+                        structures and algorithms, I thrive in the realm of innovation. As an energetic and driven
+                        technologist, I am constantly exploring the frontiers of technology, seeking to create beautiful
+                        and impactful solutions. Join me on this captivating journey of boundless possibilities!.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+
+
+
+
+    <!-- Education section -->
+    <!-- Education section -->
+    <div class="education center">
+        <div class="left_box">
+            <div class="education-container">
+                <h1 class="heading">Education</h1>
+                <div class="education-details">
+                    <div class="education-info">
+                        <h3>Techno Main Saltlake</h3>
+                        <p>Electronics & Communication Engineering</p>
+                        <small>Oct 2020 - July 2024</small>
+                        <small>Grade: 9.16 (Up to 6th sem)</small>
+                    </div>
+                    <div class="education-info">
+                        <h3>The Scottish Church Collegiate School</h3>
+                        <p>Higher Secondary Education(WBCHSE School Topper)</p>
+                        <small>Grade: 92.4% with 98% Score in Mathematics</small>
+                        <p>Secondary Education(WBBSE School Topper)</p>
+                        <small>Grade: 93.3% with 99% Score in Mathematics</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right_box">
+            <div class="image-container">
+                <img src="images/tmsl.png" alt="Techno Main Saltlake">
+                <img src="images/sccs.png" alt="The Scottish Church Collegiate School">
+            </div>
+        </div>
+    </div
+
+    <!-- skill section-->
+
+    <section class="container section" id="skills">
+        <div class="inner">
+            <div class="header">
+                <h1>My Skills</h1>
+            </div>
+            <div class="skills-container">
+                <div class="skill-box">
+                    <div class="skill-title">
+
+
+
+                        <div class="img">
+                            <img src="images/html5.png" class="skill-icon">
+                        </div>
+                        <h3>HTML 5</h3>
+                    </div>
+                    <p>Mastering the art of HTML5, the standard markup language for creating web pages and web
+                        applications.
+                    </p>
+                </div>
+
+
+                <div class="skill-box">
+                    <div class="skill-title">
+
+                        <div class="img">
+                            <img src="images/css.png" class="skill-icon">
+                        </div>
+                        <h3>CSS 3</h3>
+                    </div>
+                    <p>Crafting captivating styles with CSS3, the style sheet language used for describing the look and
+                        formatting of a
+                        document written in HTML.</p>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-title">
+
+                        <div class="img">
+                            <img src="images/js.png" class="skill-icon">
+                        </div>
+                        <h3>Javascript</h3>
+                    </div>
+                    <p>Unleashing the power of JavaScript, a versatile programming language used for creating
+                        interactive and dynamic
+                        web content.</p>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-title">
+
+                        <div class="img">
+                            <img src="images/python.jpg" class="skill-icon">
+                        </div>
+                        <h3>Python</h3>
+                    </div>
+                    <p>Embarking on a journey with Python, a powerful and popular programming language known for its
+                        simplicity and readability.</p>
+                </div>
+
+
+                <div class="skill-box">
+                    <div class="skill-title">
+
+                        <div class="img">
+                            <img src="images/java.png" class="skill-icon">
+                        </div>
+                        <h3>Java</h3>
+                    </div>
+                    <p>Setting sail on the Java seas, a widely-used programming language for building scalable and
+                        secure
+                        enterprise applications.</p>
+                </div>
+
+
+                <div class="skill-box">
+                    <div class="skill-title">
+
+                        <div class="img">
+                            <img src="images/cpp.png" class="skill-icon">
+                        </div>
+                        <h3>C++</h3>
+                    </div>
+                    <p>Harnessing the raw power of C++, a high-performance programming language widely used for
+                        developing system
+                        software and games.</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- services section-->
+        <!-- https://getbootstrap.com/docs/5.2/components/card/#about -->
+        <section class="container section" id="services">
+            <div class="container-services">
+                <h2 class="sub-title"><span class="services-heading">My Services</span></h2>
+                <div class="services-list">
+                    <div class="service-item">
+                        <i class="fa-sharp fa-solid fa-code" style="color: #fa0000;"></i>
+                        <h4>Web Designing</h4>
+                        <p>Create a lasting impression with visually captivating web designs that engage your audience
+                            and make your brand shine. Let me craft a website that leaves a lasting impact.</p>
+                        <a href="#">Learn more</a>
+                    </div>
+                    <div class="service-item">
+
+                        <i class="fa-solid fa-crop-simple" style="color: #ff0505;"></i>
+                        <h4>Microsoft Office</h4>
+                        <p>Maximize your efficiency with expert knowledge of Microsoft Office tools. From documents to
+                            presentations, I'll help you optimize your workflow and achieve professional results
+                            effortlessly.</p>
+                        <a href="#">Learn more</a>
+                    </div>
+                    <div class="service-item">
+                        <i class="fa-solid fa-square-check" style="color: #f20202;"></i>
+                        <h4>Web Development</h4>
+                        <p>Take your online presence to the next level with custom web development. I'll create
+                            responsive and dynamic websites that reflect your brand identity and provide a seamless user
+                            experience.</p>
+                        <a href="#">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!---------------CONTACT---------------->
+
+        <section class="container section" id="contact">
+            <div class="container-contact">
+                <div class="row">
+                    <div class="col-lg-6 contact-left">
+                        <h1 class="sub-title">Contact Me</h1>
+                        <p><i class="fas fa-paper-plane"></i> soumalyabhatta19@gmail.com</p>
+
+                        <p><i class="fa-solid fa-phone"></i> +91 8100664085</p>
+                        <div class="social-icon">
+                            <a href="https://www.facebook.com/profile.php?id=100012207978223&mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
+                            <a href="https://instagram.com/mallya_is_mallya?igshid=MzNlNGNkZWQ4Mg=="><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/soumalya-bhattacharyya-b09671228"><i
+                                    class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 contact-right">
+                        <form id="contact-form" name="submit-to-google-sheet">
+                            <input type="text" name="Name" placeholder="Your Name" required>
+                            <input type="email" name="Email" placeholder="Your Email" required>
+                            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                            <button type="submit">Submit</button>
+                        </form>
+                        <div class="cv-button">
+                            <a href="enter file path" download>Download CV</a>
+                        </div>
+                        <div id="confirmation-message" style="display: none;">Message sent successfully!</div>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <div class="footer-bar"></div>
+        <footer class="footer">
+            <div class="container-footer">
+                <p>&copy; 2023 Soumalya Bhattacharyya <i class="fa-solid fa-heart" style="color: #ff0000;"></i> All Rights
+                    Reserved!</p>
+            </div>
+        </footer>
+
+
+
+
+
+
+        <!--SCRIPT SECTION-->
+
+
+
+
+
+        <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+        <!-- load javascript after loading all html content -->
+        <!-- Setup and start animation! -->
+        <script>
+            var typed = new Typed('#element', {
+                strings: ['Video Editor', 'Graphic Designer', 'Web Designer'],
+                typeSpeed: 50,
+            });
+        </script>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwJCwlQPvlZK5sFDgg62zc8z9T-Z03hxronhC41vHAM4aDj8i-nNjTOySs5EiE-ZKVKww/exec';
+            const contactForm = document.getElementById('contact-form');
+            const confirmationMessage = document.getElementById('confirmation-message');
+
+            contactForm.addEventListener('submit', e => {
+                e.preventDefault();
+                const formData = new FormData(contactForm);
+                axios.post(scriptURL, formData)
+                    .then(response => {
+                        console.log('Success!', response);
+                        contactForm.reset();
+                        confirmationMessage.style.display = 'block';
+                        setTimeout(() => {
+                            confirmationMessage.style.display = 'none';
+                        }, 5000); // Hide the confirmation message after 5 seconds (adjust as needed)
+                    })
+                    .catch(error => {
+                        console.error('Error!', error.message);
+                    });
+            });
+        </script>
+          <script>
+            window.addEventListener('load', function() {
+              // Hide the loading spinner once the page has fully loaded
+              var spinner = document.querySelector('.loading-container');
+              spinner.style.display = 'none';
+            });
+          </script>
+
+        <script src="script.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
